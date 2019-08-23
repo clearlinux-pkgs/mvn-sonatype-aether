@@ -4,7 +4,7 @@
 #
 Name     : mvn-sonatype-aether
 Version  : 1.13.1
-Release  : 3
+Release  : 4
 URL      : https://repo1.maven.org/maven2/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.jar
 Source0  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.jar
 Source1  : https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.jar
@@ -18,20 +18,22 @@ Source8  : https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1
 Source9  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.pom
 Source10  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
 Source11  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
-Source12  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
-Source13  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
-Source14  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
-Source15  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
-Source16  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
-Source17  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar
-Source18  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.pom
-Source19  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
-Source20  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
-Source21  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar
-Source22  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.pom
-Source23  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
-Source24  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
-Source25  : https://repo1.maven.org/maven2/org/sonatype/aether/aether/1.13.1/aether-1.13.1.pom
+Source12  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.jar
+Source13  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.pom
+Source14  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
+Source15  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
+Source16  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
+Source17  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+Source18  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+Source19  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar
+Source20  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.pom
+Source21  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
+Source22  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+Source23  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar
+Source24  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.pom
+Source25  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+Source26  : https://repo1.maven.org/maven2/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+Source27  : https://repo1.maven.org/maven2/org/sonatype/aether/aether/1.13.1/aether-1.13.1.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -49,6 +51,7 @@ data components for the mvn-sonatype-aether package.
 
 
 %prep
+%setup -q -n META-INF
 
 %build
 
@@ -89,47 +92,53 @@ cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/ae
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-api/1.7
 cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1
-cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1
+cp %{SOURCE12} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1
+cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1
-cp %{SOURCE13} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
+cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1
+cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7
-cp %{SOURCE14} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
+cp %{SOURCE16} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7
-cp %{SOURCE15} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
+cp %{SOURCE17} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-parent/1.7
-cp %{SOURCE16} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
+cp %{SOURCE18} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1
-cp %{SOURCE17} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar
+cp %{SOURCE19} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1
-cp %{SOURCE18} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.pom
+cp %{SOURCE20} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7
-cp %{SOURCE19} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
+cp %{SOURCE21} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7
-cp %{SOURCE20} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
+cp %{SOURCE22} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1
-cp %{SOURCE21} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar
+cp %{SOURCE23} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1
-cp %{SOURCE22} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.pom
+cp %{SOURCE24} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7
-cp %{SOURCE23} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
+cp %{SOURCE25} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7
-cp %{SOURCE24} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
+cp %{SOURCE26} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether/1.13.1
-cp %{SOURCE25} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether/1.13.1/aether-1.13.1.pom
+cp %{SOURCE27} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/aether/1.13.1/aether-1.13.1.pom
 
 
 %files
@@ -149,6 +158,8 @@ cp %{SOURCE25} %{buildroot}/usr/share/java/.m2/repository/org/sonatype/aether/ae
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.pom
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
+/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.jar
+/usr/share/java/.m2/repository/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.pom
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
 /usr/share/java/.m2/repository/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
